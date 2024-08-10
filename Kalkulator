@@ -1,0 +1,174 @@
+import tkinter as tk
+result = None
+
+def delete_():
+   global result
+   result = None
+   enter_1.delete(0, 'end')
+   enter_2.delete(0, 'end')
+   output_.delete(0, 'end')
+def add():
+   num1 = int(enter_1.get())
+   num2 = int(enter_2.get())
+   res = num1 + num2
+   output_.delete(0, 'end')
+   output_.insert(0,res)
+
+def enter():
+   global result
+   result = int(enter_1.get())
+
+def sub():
+   num1 = int(enter_1.get())
+   num2 = int(enter_2.get())
+   res = num1 - num2
+   output_.delete(0, 'end')
+   output_.insert(0, res)
+
+def umnozh():
+   num1 = int(enter_1.get())
+   num2 = int(enter_2.get())
+   res = num1 * num2
+   output_.delete(0, 'end')
+   output_.insert(0,res)
+
+def delite_():
+   num1 = int(enter_1.get())
+   num2 = int(enter_2.get())
+   if num2 != 0:
+      res = num1 / num2
+      output_.delete(0, 'end')
+      output_.insert(0,res)
+   elif num2 == 0:
+      output_.insert(0, 'ERROR ')
+
+def one():
+   if result == None:
+      enter_1.insert('end', '1')
+   elif result != None:
+      enter_2.insert('end', '1')
+
+
+def two():
+   if result == None:
+      enter_1.insert('end', '2')
+   elif result != None:
+      enter_2.insert('end', '2')
+
+def three():
+   if result == None:
+      enter_1.insert('end', '3')
+   elif result != None:
+      enter_2.insert('end', '3')
+
+def four():
+   if result == None:
+      enter_1.insert('end', '4')
+   elif result != None:
+      enter_2.insert('end', '4')
+
+def five():
+   if result == None:
+      enter_1.insert('end', '5')
+   elif result != None:
+      enter_2.insert('end', '5')
+
+def six():
+   if result == None:
+      enter_1.insert('end', '6')
+   elif result != None:
+      enter_2.insert('end', '6')
+
+def seven():
+   if result == None:
+      enter_1.insert('end', '7')
+   elif result != None:
+      enter_2.insert('end', '7')
+
+def eight():
+   if result == None:
+      enter_1.insert('end', '8')
+   elif result != None:
+      enter_2.insert('end', '8')
+
+def nine():
+   if result == None:
+      enter_1.insert('end', '9')
+   elif result != None:
+      enter_2.insert('end', '9')
+
+def zero():
+   if result == None:
+      enter_1.insert('end', '0')
+   elif result != None:
+      enter_2.insert('end', '0')
+
+
+
+
+window = tk.Tk()
+window.title('Калькулятор))))')
+window.geometry('500x500')
+window.resizable(False, False)
+button_plus = tk.Button(window, text = '+', width=2, height=2, command=add)
+button_plus.place(x = 200, y = 200)
+button_minus = tk.Button(window, text = '-', width=2, height=2, command=sub)
+button_minus.place(x = 200, y = 150)
+button_umnozh = tk.Button(window, text = '*', width=2, height=2, command=umnozh)
+button_umnozh.place(x = 200, y = 250)
+button_del = tk.Button(window, text = '/', width=2, height=2, command=delite_)
+button_del.place(x = 200, y = 300)
+
+button_three = tk.Button(window, text = 'Enter', width=4, height=2, command=enter)
+button_three.place(x = 200, y = 150)
+
+button_three = tk.Button(window, text = 'C', width=3, height=2, command=delete_)
+button_three.place(x = 250, y = 150)
+
+button_one = tk.Button(window, text = '1', width=2, height=2, command=one)
+button_one.place(x = 50, y = 150)
+
+button_two = tk.Button(window, text = '2', width=2, height=2, command=two)
+button_two.place(x = 100, y = 150)
+
+button_three = tk.Button(window, text = '3', width=2, height=2, command=three)
+button_three.place(x = 150, y = 150)
+
+button_four = tk.Button(window, text = '4', width=2, height=2, command=four)
+button_four.place(x = 50, y = 200)
+
+button_five = tk.Button(window, text = '5', width=2, height=2, command=five)
+button_five.place(x = 100, y = 200)
+
+button_six = tk.Button(window, text = '6', width=2, height=2, command=six)
+button_six.place(x = 150, y = 200)
+
+button_seven = tk.Button(window, text = '7', width=2, height=2, command=seven)
+button_seven.place(x = 50, y = 250)
+
+button_eight = tk.Button(window, text = '8', width=2, height=2, command=eight)
+button_eight.place(x = 100, y = 250)
+
+button_nine = tk.Button(window, text = '9', width=2, height=2, command=nine)
+button_nine.place(x = 150, y = 250)
+
+button_zero = tk.Button(window, text = '0', width=2, height=2, command=zero)
+button_zero.place(x = 100, y = 300)
+
+enter_1 = tk.Entry(window, width=50)
+enter_1.place(x = 155, y = 90)
+enter_2 = tk.Entry(window, width=50)
+enter_2.place(x = 155, y = 120)
+output_ = tk.Entry(window, width=15)
+output_.place(x = 220, y = 360)
+
+label1 = tk.Label(window, text = 'первое число:')
+label1.place(x = 60, y = 90)
+
+label2 = tk.Label(window, text = 'второе число:')
+label2.place(x = 60, y = 120)
+
+label2 = tk.Label(window, text = 'Результат:')
+label2.place(x = 140, y = 358)
+print(result)
+window.mainloop()

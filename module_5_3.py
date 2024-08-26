@@ -9,20 +9,29 @@ class House:
         return f'Название: {self.name}, кол-во этажей: {self.number_of_floors}'
 
     def __eq__(self, other):
-        return self.number_of_floors == other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors == other.number_of_floors
+        else:
+           return self.number_of_floors == other
 
     def __lt__(self, other):
-        return self.number_of_floors < other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors < other.number_of_floors
+        else:
+            return self.number_of_floors < other
 
     def __le__(self, other):
-        return self.number_of_floors <= other.number_of_floors
+        return self.__eq__(other) or self.__lt__(other)
 
     def __gt__(self, other):
-        return self.number_of_floors > other.number_of_floors
+        return not self.__le__(other)
     def __ge__(self, other):
-        return self.number_of_floors >= other.number_of_floors
+        return not self.__lt__(other)
     def __ne__(self, other):
-        return self.number_of_floors != other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors != other.number_of_floors
+        else:
+            return self.number_of_floors != other
     def __add__(self, value):
         self.number_of_floors = self.number_of_floors + value
         return self
@@ -45,8 +54,7 @@ class House:
                     print(i)
 
 
-h1 = House('ЖК Эльбрус', 10)
-h2 = House('ЖК Акация', 20)
+
 
 h1 = House('ЖК Эльбрус', 10)
 h2 = House('ЖК Акация', 20)
